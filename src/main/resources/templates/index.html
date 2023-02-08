@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Faça Login: </h1>
+    <a href="/login">Login aqui</a>
+
+    <h1>ADMIN HOME PAGE: </h1>
+    <a href="/home-admin">clique aqui</a>
+
+    <h1>USER HOME PAGE: </h1>
+    <a href="/home-user">clique aqui</a>
+
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out">
+    </form>
+</body>
+</html>
