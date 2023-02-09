@@ -1,18 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
 </head>
 <body>
-    <h1>Faça Login: </h1>
-    <a href="/login">Login aqui</a>
 
     <h1>ADMIN HOME PAGE: </h1>
     <a href="/home-admin">clique aqui</a>
 
     <h1>USER HOME PAGE: </h1>
     <a href="/home-user">clique aqui</a>
+
+    <div sec:authorize="isAuthenticated()">
+        This content is only shown to authenticated users.
+    </div>
+    <div sec:authorize="hasRole('ROLE_ADMIN')">
+        This content is only shown to administrators.
+    </div>
+    <div sec:authorize="hasRole('ROLE_USER')">
+        This content is only shown to users.
+    </div>
 
     <form th:action="@{/logout}" method="post">
         <input type="submit" value="Sign Out">
