@@ -3,27 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .text-center {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-
-    <h1>ADMIN HOME PAGE: </h1>
-    <a href="/home-admin">clique aqui</a>
-
-    <h1>USER HOME PAGE: </h1>
-    <a href="/home-user">clique aqui</a>
-
-    <div sec:authorize="isAuthenticated()">
-        This content is only shown to authenticated users.
-    </div>
-    <div sec:authorize="hasRole('ROLE_ADMIN')">
-        This content is only shown to administrators.
-    </div>
-    <div sec:authorize="hasRole('ROLE_USER')">
-        This content is only shown to users.
+<div class="container mt-5">
+    <h1 class="text-center">ADMIN HOME PAGE: </h1>
+    <div class="text-center">
+        <a href="/home-admin" class="btn btn-primary" name="admin"  id="admin">Click Here</a>
     </div>
 
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out">
+    <h1 class="text-center mt-5">USER HOME PAGE: </h1>
+    <div class="text-center">
+        <a href="/home-user" class="btn btn-primary" id="user-button">Click Here</a>
+    </div>
+
+    <h1 class="text-center mt-5">LOGIN: </h1>
+    <div class="text-center">
+        <a href="/login" class="btn btn-primary" id="login-button">Click Here</a>
+    </div>
+
+    <div class="text-center mt-5" sec:authorize="isAuthenticated()">
+        <p>This content is only shown to authenticated users.</p>
+    </div>
+    <div class="text-center mt-5" sec:authorize="hasRole('ROLE_ADMIN')">
+        <p>This content is only shown to administrators.</p>
+    </div>
+    <div class="text-center mt-5" sec:authorize="hasRole('ROLE_USER')">
+        <p>This content is only shown to users.</p>
+    </div>
+
+    <form class="text-center mt-5" th:action="@{/logout}" method="post">
+        <input class="btn btn-danger" type="submit" value="Sign Out">
     </form>
+</div>
 </body>
 </html>
