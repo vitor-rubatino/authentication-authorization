@@ -4,7 +4,7 @@
 </head>
 <body>
 <h1>Please Log In</h1>
-<div th:if="${param.error}">
+<div th:if="${param.error}" id="invalid">
   Invalid username and password.</div>
 <div th:if="${param.logout}">
   You have been logged out.</div>
